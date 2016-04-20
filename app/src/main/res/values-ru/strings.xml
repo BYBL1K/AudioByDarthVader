@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Аудио фильтры от Дарта Вейдера</string>
+    <string name="strikedText">Люк, я твой создатель</string>
+    <string name="next">Далее</string>
+    <string name="textMain1">Привет, прользователь! В этом приложении ты найдешь только самые простые вещи. Ты можешь записать свой голос. Наложить на него фильтр и потом отправить своему другу на почту. Если ты согласен, жми далее :)</string>
+</resources>

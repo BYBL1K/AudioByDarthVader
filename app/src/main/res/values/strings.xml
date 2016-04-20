@@ -1,3 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Darth Vader Audio Filters</string>
+    <string name="strikedText">Luk, i am your maker</string>
+    <string name="next">Next</string>
+    <string name="textMain1"><center>Hi, User! In this application, you will find only the most simple things. You can record your voice. Apply a filter on it and then send your friend on mail. If you agree, PUSH on :)</center></string>
 </resources>
