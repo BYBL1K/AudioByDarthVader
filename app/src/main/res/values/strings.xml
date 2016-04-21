@@ -4,7 +4,7 @@
     <string name="strikedText">Luk, i am your maker</string>
     <string name="next">Next</string>
     <string name="textMain1"><center>Hi, User! In this application, you will find only the most simple things. You can record your voice. Apply a filter on it and then send your friend on mail. If you agree, PUSH on :)</center></string>
-    <string name="act2_text">Say something!</string>
+    <string name="act2_text">Please...</string>
     <string name="act2_text2">(May click on image)</string>
     <string name="sendEmail">Send on Email</string>
     <string name="filter1">Darth Vader</string>

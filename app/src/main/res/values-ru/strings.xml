@@ -5,7 +5,7 @@
     <string name="next">Далее</string>
     <string name="textMain1">Привет, прользователь! В этом приложении ты найдешь только самые простые вещи. Ты можешь записать свой голос. Наложить на него фильтр и потом отправить своему другу на почту. Если ты согласен, жми далее :)</string>
     <string name="act2_text">Скажите что-нибудь!</string>
-    <string name="act2_text2">(Надо нажать на картинку)</string>
+    <string name="act2_text2">(Ну пожалуйста...)</string>
     <string name="sendEmail">Отправить по почте</string>
     <string name="filter1">Дарт Вейдер</string>
     <string name="filter2">Дроид</string>
