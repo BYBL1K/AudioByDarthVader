@@ -1,10 +1,12 @@
 package com.example.android.darthvaderaudiofilters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -12,28 +14,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main2Activity extends Activity {
 
     Button play,stop,record;
     private MediaRecorder myAudioRecorder;
-    private String outputFile = null;
+    public String outputFile = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        play=(Button)findViewById(R.id.button3);
-        stop=(Button)findViewById(R.id.button2);
-        record=(Button)findViewById(R.id.button);
+        play=(Button)findViewById(R.id.play_button);
+        stop=(Button)findViewById(R.id.stop_button);
+        record=(Button)findViewById(R.id.record_button);
 
         stop.setEnabled(false);
         play.setEnabled(false);
-        outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.3gp";;
+        outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.mp3";
 
         myAudioRecorder=new MediaRecorder();
         myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -50,19 +54,17 @@ public class Main2Activity extends Activity {
                 }
 
                 catch (IllegalStateException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
                 catch (IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
                 record.setEnabled(false);
                 stop.setEnabled(true);
 
-                Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Запись началась..", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -76,7 +78,7 @@ public class Main2Activity extends Activity {
                 stop.setEnabled(false);
                 play.setEnabled(true);
 
-                Toast.makeText(getApplicationContext(), "Audio recorded successfully", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Успешно записано!", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -102,8 +104,27 @@ public class Main2Activity extends Activity {
                 }
 
                 m.start();
-                Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Воспроизведение аудио", Toast.LENGTH_LONG).show();
             }
         });
+
     }
+
+    public void send(View view) {
+
+        File fileIn = new File(outputFile);
+
+        Uri uri = Uri.fromFile(fileIn);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setType("Audio/mp3");
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Смотри, что я записал!");
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+
+        if (emailIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(emailIntent);
+            Toast.makeText(this, "Отправляем...", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 }

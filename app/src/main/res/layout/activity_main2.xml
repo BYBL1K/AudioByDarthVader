@@ -34,71 +34,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/act2_text2"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:textAllCaps="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="center"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp">
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="75dp">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="20dp"
             android:padding="20dp"
-            android:text="Record"
-            android:id="@+id/button"/>
+            android:text="@string/record"
+            android:id="@+id/record_button"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="30dp"
             android:padding="20dp"
-            android:text="Stop"
-            android:id="@+id/button2"
+            android:text="@string/stop"
+            android:id="@+id/play_button"
             android:layout_centerHorizontal="true" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="play"
-            android:id="@+id/button3"/>
+            android:text="@string/play"
+            android:id="@+id/stop_button"/>
 
-
-    </LinearLayout>>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:padding="10dp"
-            android:text="@string/filter1"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:padding="10dp"
-            android:text="@string/filter2"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:padding="10dp"
-            android:text="@string/filter3"/>
 
     </LinearLayout>
 
@@ -108,7 +80,8 @@
         android:text="@string/sendEmail"
         android:padding="10dp"
         android:layout_marginTop="20dp"
-        android:background="#448AFF"/>
+        android:background="#448AFF"
+        android:onClick="send"/>
 
 </LinearLayout>
 

@@ -20,11 +20,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/strikedText"
+        android:id="@+id/luk_maker"
+        android:text="@string/homeText"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+        android:textAllCaps="true"/>
 
     <ImageView
         android:layout_width="match_parent"
