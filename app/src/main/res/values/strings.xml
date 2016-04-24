@@ -3,7 +3,7 @@
     <string name="app_name">Audio by Darth Vader</string>
     <string name="homeText">Luk, i am your maker</string>
     <string name="next">Next</string>
-    <string name="textMain1"><center>Hi, User! In this application, you will find only the most simple things. You can record your voice. Apply a filter on it and then send your friend on mail. If you agree, PUSH on :)</center></string>
+    <string name="textMain1">Hi, User! In this application, you try yourself in the role Darth Vader. You can record your voice, listen, and then send your friend on mail. If you agree, PUSH on :)</string>
     <string name="act2_text">Say something!</string>
     <string name="act2_text2">You can record your voice and send it by mail, for example, to a friend</string>
     <string name="sendEmail">Send on Email</string>
@@ -14,4 +14,8 @@
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="back2act">Back</string>
+    <string name="subj_text">Message subject:</string>
+    <string name="mail_text">Maybe you want write sth to him?</string>
+    <string name="exit">No, thanks</string>
+    <!--<string name="doDarth">Do me Darth Vader</string>-->
 </resources>
