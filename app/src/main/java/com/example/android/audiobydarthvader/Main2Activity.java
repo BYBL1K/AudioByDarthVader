@@ -1,21 +1,18 @@
-package com.example.android.darthvaderaudiofilters;
+package com.example.android.audiobydarthvader;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.AudioFormat;
-import android.media.AudioRecord;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.android.audiobydarthvader.R;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,7 +33,9 @@ public class Main2Activity extends Activity {
         record=(Button)findViewById(R.id.record_button);
 
         stop.setEnabled(false);
+        stop.setTextColor(Color.parseColor("#9E9E9E"));
         play.setEnabled(false);
+        play.setTextColor(Color.parseColor("#9E9E9E"));
         outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.mp3";
 
         myAudioRecorder=new MediaRecorder();
@@ -63,6 +62,8 @@ public class Main2Activity extends Activity {
 
                 record.setEnabled(false);
                 stop.setEnabled(true);
+                stop.setTextColor(Color.parseColor("#F9A825"));
+                record.setTextColor(Color.parseColor("#9E9E9E"));
 
                 Toast.makeText(getApplicationContext(), "Запись началась..", Toast.LENGTH_LONG).show();
             }
@@ -77,6 +78,8 @@ public class Main2Activity extends Activity {
 
                 stop.setEnabled(false);
                 play.setEnabled(true);
+                play.setTextColor(Color.parseColor("#F9A825"));
+                stop.setTextColor(Color.parseColor("#9E9E9E"));
 
                 Toast.makeText(getApplicationContext(), "Успешно записано!", Toast.LENGTH_LONG).show();
             }
@@ -125,6 +128,11 @@ public class Main2Activity extends Activity {
             startActivity(emailIntent);
             Toast.makeText(this, "Отправляем...", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void back2Act(View view) {
+        Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+        startActivity(intent);
     }
 
 }

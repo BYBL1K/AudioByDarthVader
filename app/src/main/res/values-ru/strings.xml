@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Аудио фильтры от Дарта Вейдера</string>
+    <string name="app_name">Говори, как Дарт Вейдер</string>
     <string name="homeText">Люк, я твой создатель</string>
     <string name="next">Далее</string>
     <string name="textMain1">Привет, пользователь! В этом приложении ты найдешь только самые простые вещи. Ты можешь записать свой голос. Наложить на него фильтр и потом отправить своему другу на почту. Если ты согласен, жми далее :)</string>
     <string name="act2_text">Скажите что-нибудь!</string>
-    <string name="act2_text2"><![CDATA[(Ну пожалуйста...)
-    Вы можете записать свой голос, затем прослушать его
-    Примените фильтр(нажмите на него) и снова прослушайте]]></string>
+    <string name="act2_text2">Вы можете записать свой голос и отправить его по почте, например, своему другу</string>
     <string name="sendEmail">Отправить по почте</string>
     <string name="filter1">Дарт Вейдер</string>
     <string name="filter2">Дроид</string>
@@ -15,4 +13,5 @@
     <string name="record">Запись</string>
     <string name="play">Играть</string>
     <string name="stop">Остановить</string>
+    <string name="back2act">Назад</string>
 </resources>

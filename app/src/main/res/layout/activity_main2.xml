@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/act2_text2"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -46,42 +46,63 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50dp"
-        android:layout_marginBottom="75dp">
+        android:layout_marginBottom="25dp">
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="@string/record"
-            android:id="@+id/record_button"/>
+            android:textColor="#F9A825"
+            android:id="@+id/record_button"
+            android:background="@drawable/but"/>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:padding="20dp"
+            android:padding="10dp"
             android:text="@string/stop"
-            android:id="@+id/play_button"
+            android:textColor="#F9A825"
+            android:id="@+id/stop_button"
+            android:background="@drawable/but"
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="@string/play"
-            android:id="@+id/stop_button"/>
+            android:textColor="#F9A825"
+            android:background="@drawable/but"
+            android:id="@+id/play_button"/>
 
 
     </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/sendEmail"
-        android:padding="10dp"
-        android:layout_marginTop="20dp"
-        android:background="#448AFF"
-        android:onClick="send"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back2act"
+            android:padding="10dp"
+            android:background="#448AFF"
+            android:onClick="back2Act"
+            android:layout_alignParentLeft="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/sendEmail"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:background="#448AFF"
+            android:onClick="send"/>
+    </RelativeLayout>
+
 
 </LinearLayout>
 
