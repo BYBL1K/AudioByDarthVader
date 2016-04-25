@@ -1,16 +1,10 @@
-package com.example.android.audiobydarthvader;
+package com.example.android.dictophonemail;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Movie;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
-import java.io.InputStream;
 
 public class MainActivity extends AppCompatActivity {
 

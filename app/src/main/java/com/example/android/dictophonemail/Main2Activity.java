@@ -1,20 +1,17 @@
-package com.example.android.audiobydarthvader;
+package com.example.android.dictophonemail;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.media.SoundPool;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.SystemClock;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
@@ -25,26 +22,25 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
-public class Main2Activity extends Activity  {
+public class Main2Activity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
-    Button play,stop,record,darth;
+    Button play, stop, record, send;
     private MediaRecorder myAudioRecorder;
     public String outputFile = null;
-    SoundPool sp;
-    int soundVader;
-    int spId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        getPermissionToRecordAudio();
+
         play=(Button)findViewById(R.id.play_button);
         stop=(Button)findViewById(R.id.stop_button);
         record=(Button)findViewById(R.id.record_button);
-        darth = (Button)findViewById(R.id.doDarth);
+        send = (Button)findViewById(R.id.send_button);
 
-        darth.setEnabled(false);
+        send.setEnabled(false);
         stop.setEnabled(false);
         stop.setTextColor(Color.parseColor("#9E9E9E"));
         play.setEnabled(false);
@@ -83,12 +79,11 @@ public class Main2Activity extends Activity  {
             public void onClick(View v) {
                 myAudioRecorder.stop();
                 myAudioRecorder.release();
-                initializeSoundPool();
                 myAudioRecorder = null;
 
                 stop.setEnabled(false);
-                darth.setEnabled(true);
                 play.setEnabled(true);
+                send.setEnabled(true);
                 play.setTextColor(Color.parseColor("#000000"));
                 stop.setTextColor(Color.parseColor("#9E9E9E"));
 
@@ -119,27 +114,6 @@ public class Main2Activity extends Activity  {
         });
     }
 
-    public void initializeSoundPool() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .build();
-
-            sp = new SoundPool.Builder()
-                    .setMaxStreams(2)
-                    .setAudioAttributes(audioAttributes)
-                    .build();
-            spId = sp.load(outputFile, 0);
-            soundVader = sp.load(this, R.raw.vaderbreathing, 1);
-        } else {
-            sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 1);
-            spId = sp.load(outputFile, 0);
-            soundVader = sp.load(this, R.raw.vaderbreathing, 1);
-        }
-    }
-
     public void send(View view) {
 
         EditText subj = (EditText)findViewById(R.id.subject_mail);
@@ -164,19 +138,45 @@ public class Main2Activity extends Activity  {
         }
     }
 
-    public void doDarth(View view){
-        int waitLimit = 1000;
-        int waitCounter = 0;
-        int throttle = 10;
-        while(sp.play(spId, 1.f, 1.f, 0, 0, 0.75f) == 0 && waitCounter < waitLimit)
-        {waitCounter++; SystemClock.sleep(throttle);}
-        while(sp.play(soundVader, 0.4f, 0.4f, 0, 0, 0.75f) == 0 && waitCounter < waitLimit)
-        {waitCounter++; SystemClock.sleep(throttle);}
-    }
-
     public void back2Act(View view) {
         Intent intent = new Intent(Main2Activity.this, MainActivity.class);
         startActivity(intent);
+    }
+
+    private static final int RECORD_AUDIO_PERMISSIONS_REQUEST = 1;
+
+    public void getPermissionToRecordAudio() {
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                if (shouldShowRequestPermissionRationale(
+                        Manifest.permission.RECORD_AUDIO)) {
+                    Toast.makeText(this, "This is necessary so that you can record an audio message", Toast.LENGTH_SHORT).show();
+                }
+                requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO},
+                        RECORD_AUDIO_PERMISSIONS_REQUEST);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[],
+                                           int[] grantResults) {
+
+        if (requestCode == RECORD_AUDIO_PERMISSIONS_REQUEST) {
+            if (grantResults.length == 1 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "Record audio permission granted", Toast.LENGTH_SHORT).show();
+                record.setEnabled(true);
+            } else {
+                Toast.makeText(this, "Record audio permission denied", Toast.LENGTH_SHORT).show();
+                record.setEnabled(false);
+            }
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 
 }

@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Audio by Darth Vader</string>
-    <string name="homeText">Luk, i am your maker</string>
+    <string name="app_name">Write the audio message to a friend</string>
     <string name="next">Next</string>
-    <string name="textMain1">Hi, User! In this application, you try yourself in the role Darth Vader. You can record your voice, listen, and then send your friend on mail. If you agree, PUSH on :)</string>
+    <string name="textMain1">Hi, User! In this application, you can send your voice message to a friend by e-mail.
+         Record your voice, listen, write optional text and message subject, and then send it to your friend in the mail. If you agree, PUSH on :)</string>
     <string name="act2_text">Say something!</string>
-    <string name="act2_text2">You can record your voice and send it by mail, for example, to a friend</string>
     <string name="sendEmail">Send on Email</string>
-    <string name="filter1">Darth Vader</string>
-    <string name="filter2">Helium</string>
-    <string name="filter3">Android</string>
     <string name="record">Record</string>
     <string name="play">Play</string>
     <string name="stop">Stop</string>
@@ -17,5 +13,4 @@
     <string name="subj_text">Message subject:</string>
     <string name="mail_text">Maybe you want write sth to him?</string>
     <string name="exit">No, thanks</string>
-    <string name="doDarth">Do me Darth Vader</string>
 </resources>

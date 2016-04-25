@@ -14,14 +14,12 @@
         android:paddingRight="8dp"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:gravity="center"
-        tools:context="com.example.android.audiobydarthvader.Main2Activity">
+        tools:context="com.example.android.dictophonemail.Main2Activity">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/luk_maker"
-            android:text="@string/homeText"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textAllCaps="true"/>
@@ -29,7 +27,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/darth" />
+            android:src="@drawable/homeimage" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AudioByDarthVader.iml" filepath="$PROJECT_DIR$/AudioByDarthVader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DictophoneMail.iml" filepath="$PROJECT_DIR$/DictophoneMail.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

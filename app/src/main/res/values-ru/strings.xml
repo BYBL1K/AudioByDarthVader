@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Говори, как Дарт Вейдер</string>
-    <string name="homeText">Люк, я твой создатель</string>
+    <string name="app_name">Запиши другу послание</string>
     <string name="next">Далее</string>
-    <string name="textMain1">Привет, пользователь! В этом приложении ты попробуешь себя в роли Дарта Вейдера. Ты можешь записать свой голос, прослушать и потом отправить своему другу на почту. Если ты согласен, жми далее :)</string>
+    <string name="textMain1">Привет, пользователь! В этом приложении ты можешь отправить другу свое голосовое сообщение по почте.
+        Запиши свой голос, прослушай, напиши по желанию текст и тему письма, и потом отправь своему другу на почту. Если ты согласен, жми далее :)</string>
     <string name="act2_text">Скажите что-нибудь!</string>
-    <string name="act2_text2">Вы можете записать свой голос и отправить его по почте, например, своему другу</string>
     <string name="sendEmail">Отправить по почте</string>
-    <string name="filter1">Дарт Вейдер</string>
-    <string name="filter2">Дроид</string>
-    <string name="filter3">Гелий</string>
     <string name="record">Запись</string>
     <string name="play">Играть</string>
     <string name="stop">Остановить</string>
@@ -17,5 +13,4 @@
     <string name="subj_text">Тема сообщения:</string>
     <string name="mail_text">Может вы хотите что-то написать ему?</string>
     <string name="exit">Нет, спасибо</string>
-    <string name="doDarth">Сделать меня Дартом Вейдером</string>
 </resources>
