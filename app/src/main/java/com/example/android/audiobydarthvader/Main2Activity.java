@@ -1,13 +1,22 @@
 package com.example.android.audiobydarthvader;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.media.SoundPool;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,9 +27,12 @@ import java.io.IOException;
 
 public class Main2Activity extends Activity  {
 
-    Button play,stop,record;
+    Button play,stop,record,darth;
     private MediaRecorder myAudioRecorder;
     public String outputFile = null;
+    SoundPool sp;
+    int soundVader;
+    int spId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +42,9 @@ public class Main2Activity extends Activity  {
         play=(Button)findViewById(R.id.play_button);
         stop=(Button)findViewById(R.id.stop_button);
         record=(Button)findViewById(R.id.record_button);
+        darth = (Button)findViewById(R.id.doDarth);
 
+        darth.setEnabled(false);
         stop.setEnabled(false);
         stop.setTextColor(Color.parseColor("#9E9E9E"));
         play.setEnabled(false);
@@ -42,7 +56,6 @@ public class Main2Activity extends Activity  {
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
-
 
         record.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +83,11 @@ public class Main2Activity extends Activity  {
             public void onClick(View v) {
                 myAudioRecorder.stop();
                 myAudioRecorder.release();
+                initializeSoundPool();
                 myAudioRecorder = null;
 
                 stop.setEnabled(false);
+                darth.setEnabled(true);
                 play.setEnabled(true);
                 play.setTextColor(Color.parseColor("#000000"));
                 stop.setTextColor(Color.parseColor("#9E9E9E"));
@@ -104,6 +119,27 @@ public class Main2Activity extends Activity  {
         });
     }
 
+    public void initializeSoundPool() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_GAME)
+                    .build();
+
+            sp = new SoundPool.Builder()
+                    .setMaxStreams(2)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+            spId = sp.load(outputFile, 0);
+            soundVader = sp.load(this, R.raw.vaderbreathing, 1);
+        } else {
+            sp = new SoundPool(2, AudioManager.STREAM_MUSIC, 1);
+            spId = sp.load(outputFile, 0);
+            soundVader = sp.load(this, R.raw.vaderbreathing, 1);
+        }
+    }
+
     public void send(View view) {
 
         EditText subj = (EditText)findViewById(R.id.subject_mail);
@@ -128,9 +164,15 @@ public class Main2Activity extends Activity  {
         }
     }
 
-//    public void doDarth(View view){
-//
-//    }
+    public void doDarth(View view){
+        int waitLimit = 1000;
+        int waitCounter = 0;
+        int throttle = 10;
+        while(sp.play(spId, 1.f, 1.f, 0, 0, 0.75f) == 0 && waitCounter < waitLimit)
+        {waitCounter++; SystemClock.sleep(throttle);}
+        while(sp.play(soundVader, 0.4f, 0.4f, 0, 0, 0.75f) == 0 && waitCounter < waitLimit)
+        {waitCounter++; SystemClock.sleep(throttle);}
+    }
 
     public void back2Act(View view) {
         Intent intent = new Intent(Main2Activity.this, MainActivity.class);

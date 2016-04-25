@@ -17,5 +17,5 @@
     <string name="subj_text">Message subject:</string>
     <string name="mail_text">Maybe you want write sth to him?</string>
     <string name="exit">No, thanks</string>
-    <!--<string name="doDarth">Do me Darth Vader</string>-->
+    <string name="doDarth">Do me Darth Vader</string>
 </resources>

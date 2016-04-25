@@ -17,5 +17,5 @@
     <string name="subj_text">Тема сообщения:</string>
     <string name="mail_text">Может вы хотите что-то написать ему?</string>
     <string name="exit">Нет, спасибо</string>
-    <!--<string name="doDarth">Сделать меня Дартом Вейдером</string>-->
+    <string name="doDarth">Сделать меня Дартом Вейдером</string>
 </resources>
